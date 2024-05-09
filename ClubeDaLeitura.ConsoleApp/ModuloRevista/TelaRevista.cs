@@ -1,9 +1,13 @@
 ﻿using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
+using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 using ControleMedicamentos.ConsoleApp.Compartilhado;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloRevista;
 internal class TelaRevista : TelaBase
 {
+    public TelaCaixa telaCaixa = null;
+    public RepositorioCaixa repositorioCaixa = null;
+
     public override void VisualizarRegistros(bool exibirTitulo)
     {
         if (exibirTitulo)
@@ -58,9 +62,14 @@ internal class TelaRevista : TelaBase
 
     public void CadastrarEntidadeTeste()
     {
-        // Trazer a referência da tela de caixa e antes de pedir a caixa da revista mostrar a lista de caixas cadastradas (Visualizar registros)
-        Revista revistas = new Revista("Turma da Mõnica", "12389", "1998", "HQs");
+        Caixa caixa = (Caixa)repositorioCaixa.SelecionarTodos()[0];
 
-        repositorio.Cadastrar(revistas);
+        DateTime dataValidade = new DateTime(2025, 06, 20);
+        
+        Revista revista = new Revista("Turma da Mõnica", "12389", "1998", caixa);
+
+        repositorio.Cadastrar(revista);
     }
+
+
 }

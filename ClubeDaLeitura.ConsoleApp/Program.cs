@@ -1,4 +1,5 @@
 ﻿using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
+using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using ControleMedicamentos.ConsoleApp.Compartilhado;
 
 namespace ClubeDaLeitura.ConsoleApp
@@ -14,6 +15,12 @@ namespace ClubeDaLeitura.ConsoleApp
             telaAmigo.repositorio = repositorioAmigo;
             telaAmigo.CadastrarEntidadeTeste();
 
+            RepositorioCaixa repositorioCaixa = new RepositorioCaixa();
+            TelaCaixa telaCaixa = new TelaCaixa();
+            telaCaixa.tipoEntidade = "Caixa  ";
+            telaCaixa.repositorio = repositorioCaixa;
+            telaCaixa.CadastrarEntidadeTeste();
+
             while (true)
             {
                 char opcaoPrincipalEscolhida = TelaPrincipal.ApresentarMenuPrincipal();
@@ -25,10 +32,10 @@ namespace ClubeDaLeitura.ConsoleApp
 
                 if (opcaoPrincipalEscolhida == '1')
                     tela = telaAmigo;
-                /*
+                
                 else if (opcaoPrincipalEscolhida == '2')
                     tela = telaCaixa;
-
+                /*
                 else if (opcaoPrincipalEscolhida == '3')
                     tela = telaRevista;
 

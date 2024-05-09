@@ -9,7 +9,15 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
         public string Etiqueta { get; set; }
         public string CorCaixa { get; set; }
         public int TempoEmprestimo { get; set; }
-        public Revista[] revistas { get; set; }
+        public Revista[] Revistas { get; set; }
+
+        public Caixa(string etiqueta, string corCaixa, int tempoEmprestimo, Revista[] revistas)
+        {
+            Etiqueta = etiqueta;
+            CorCaixa = corCaixa;
+            TempoEmprestimo = tempoEmprestimo;
+            Revistas = revistas;
+        }
 
         public override string[] Validar()
         {
@@ -22,7 +30,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
             if (string.IsNullOrEmpty(CorCaixa))
                 erros[contadorErros++] = "A cor da caixa precisa ser informada";
 
-            if (TempoEmprestimo > 0)
+            if (TempoEmprestimo < 0)
                 erros[contadorErros++] = "O tempo estimado precisa ser maior que zero";
 
             string[] errosFiltrados = new string[contadorErros];
