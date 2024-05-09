@@ -9,7 +9,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
         public string Etiqueta { get; set; }
         public string CorCaixa { get; set; }
         public int TempoEmprestimo { get; set; }
-        public Revista[] revistas { get; set; }
+        public Revista[] revistas { get; set; } 
 
         public override string[] Validar()
         {
