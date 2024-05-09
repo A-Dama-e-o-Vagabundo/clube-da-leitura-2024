@@ -1,5 +1,4 @@
-﻿using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
-using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
+﻿using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 using ControleMedicamentos.ConsoleApp.Compartilhado;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloRevista;
@@ -52,24 +51,16 @@ internal class TelaRevista : TelaBase
         Console.Write("Digite o ano: ");
         string ano = Console.ReadLine();
 
-        Console.Write("Digite de qual caixa é a revista: ");
-        string caixa = Console.ReadLine();
+        telaCaixa.VisualizarRegistros(false);
 
-        Amigo novoAmigo = new Amigo(titulo, numeroEdicao, ano, caixa);
+        Console.Write("Digite o id da caixa: ");
+        int idCaixa = Convert.ToInt32(Console.ReadLine());
 
-        return novoAmigo;
+        Caixa caixaSelecionada =  (Caixa)repositorioCaixa.SelecionarPorId(idCaixa);
+
+
+        Revista revista = new Revista(titulo, numeroEdicao, ano, caixaSelecionada);
+
+        return revista;
     }
-
-    public void CadastrarEntidadeTeste()
-    {
-        Caixa caixa = (Caixa)repositorioCaixa.SelecionarTodos()[0];
-
-        DateTime dataValidade = new DateTime(2025, 06, 20);
-        
-        Revista revista = new Revista("Turma da Mõnica", "12389", "1998", caixa);
-
-        repositorio.Cadastrar(revista);
-    }
-
-
 }
