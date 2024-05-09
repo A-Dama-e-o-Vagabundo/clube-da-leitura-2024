@@ -1,6 +1,6 @@
 ﻿using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using ControleMedicamentos.ConsoleApp.Compartilhado;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Collections;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
 {
@@ -9,14 +9,14 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
         public string Etiqueta { get; set; }
         public string CorCaixa { get; set; }
         public int TempoEmprestimo { get; set; }
-        public Revista[] Revistas { get; set; }
+        public ArrayList Revistas { get; set; }
 
-        public Caixa(string etiqueta, string corCaixa, int tempoEmprestimo, Revista[] revistas)
+        public Caixa(string etiqueta, string corCaixa, int tempoEmprestimo)
         {
             Etiqueta = etiqueta;
             CorCaixa = corCaixa;
             TempoEmprestimo = tempoEmprestimo;
-            Revistas = revistas;
+            Revistas = new ArrayList();
         }
 
         public override string[] Validar()
@@ -38,6 +38,12 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
             Array.Copy(erros, errosFiltrados, contadorErros);
 
             return errosFiltrados;
+        }
+
+        public void GuardarRevista(Revista revista)
+        {
+            
+            Revistas.Add(revista);
         }
     }
 }

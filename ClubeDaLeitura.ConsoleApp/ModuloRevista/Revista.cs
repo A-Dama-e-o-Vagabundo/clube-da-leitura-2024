@@ -7,14 +7,16 @@ internal class Revista : EntidadeBase
     public string Titulo { get; set; }
     public string NumeroEdicao { get; set; }
     public string Ano {  get; set; }
-    public Caixa caixa { get; set; }
+    public Caixa Caixa { get; set; }
 
     public Revista(string titulo, string numeroEdicao, string ano, Caixa caixa)
     {
+
         Titulo = titulo;
         NumeroEdicao = numeroEdicao;
         Ano = ano;
-        this.caixa = caixa;
+        Caixa = caixa;
+        //caixaSelecionada
     }
 
     public override string[] Validar()
@@ -37,4 +39,5 @@ internal class Revista : EntidadeBase
 
         return errosFiltrados;
     }
+
 }

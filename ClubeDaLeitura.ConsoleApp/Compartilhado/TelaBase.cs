@@ -10,7 +10,7 @@
             Console.Clear();
 
             Console.WriteLine("----------------------------------------");
-            Console.WriteLine($"        Controle de {tipoEntidade}s        ");
+            Console.WriteLine($"|        Controle de {tipoEntidade}    |");
             Console.WriteLine("----------------------------------------");
 
             Console.WriteLine();

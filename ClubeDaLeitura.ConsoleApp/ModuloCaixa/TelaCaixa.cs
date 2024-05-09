@@ -1,15 +1,13 @@
-﻿using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
-using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
+﻿using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 using ControleMedicamentos.ConsoleApp.Compartilhado;
-using System.Reflection.Emit;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloRevista;
 internal class TelaCaixa : TelaBase
 {
+    public TelaRevista telaRevista = null;
+    public RepositorioRevista repositorioRevista = null;
     public override void VisualizarRegistros(bool exibirTitulo)
     {
-
-
         if (exibirTitulo)
         {
             ApresentarCabecalho();
@@ -21,8 +19,8 @@ internal class TelaCaixa : TelaBase
 
         Console.WriteLine(
             "{0, -10} | {1, -25} | {2, -25} | {3, -15} | {4, -20}",
-            "Etiqueta", "Cor", "Revistas", "Tempo de Emprestimo"
-        )
+            "Id", "Etiqueta", "Cor", "Revistas", "Tempo de Emprestimo"
+        );
 
         EntidadeBase[] caixasCadastradas = repositorio.SelecionarTodos();
 
@@ -33,7 +31,7 @@ internal class TelaCaixa : TelaBase
 
             Console.WriteLine(
                 "{0, -10} | {1, -25} | {2, -25} | {3, -15} | {4, -20}",
-                caixas.Etiqueta, caixas.CorCaixa, caixas.Revistas, caixas.TempoEmprestimo
+                caixas.Id, caixas.Etiqueta, caixas.CorCaixa, caixas.Revistas, caixas.TempoEmprestimo
             );
         }
 
@@ -49,14 +47,15 @@ internal class TelaCaixa : TelaBase
         Console.Write("Digite a cor da caixa: ");
         string cor = Console.ReadLine();
 
-        Console.Write("Digite as revistas presentes na caixa: ");
-        string revistas = Console.ReadLine();
+        Console.Write("Digite o tempo de empréstimo em dias: ");
+        int tempoEmprestimo = int.Parse(Console.ReadLine());
+             
 
-        Caixa novaCaixa = new Caixa(etiqueta, cor, revistas);
+        Caixa novaCaixa = new Caixa(etiqueta, cor, tempoEmprestimo);
 
         return novaCaixa;
     }
-
+    /*
     public void CadastrarEntidadeTeste()
     {
         Caixa caixa = (Caixa)RepositorioCaixa.SelecionarTodos()[0];
@@ -67,4 +66,5 @@ internal class TelaCaixa : TelaBase
 
         repositorio.Cadastrar(revista);
     }
+    */
 }

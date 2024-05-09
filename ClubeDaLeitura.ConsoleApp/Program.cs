@@ -1,4 +1,5 @@
 ﻿using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
+using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using ControleMedicamentos.ConsoleApp.Compartilhado;
 
@@ -15,11 +16,22 @@ namespace ClubeDaLeitura.ConsoleApp
             telaAmigo.repositorio = repositorioAmigo;
             telaAmigo.CadastrarEntidadeTeste();
 
+            // módulo revista
+            RepositorioRevista repositorioRevista = new RepositorioRevista();
+            TelaRevista telaRevista = new TelaRevista();
+            telaRevista.tipoEntidade = "Revista  ";
+            telaRevista.repositorio = repositorioRevista;
+            
+            // Módulo Caixa
             RepositorioCaixa repositorioCaixa = new RepositorioCaixa();
             TelaCaixa telaCaixa = new TelaCaixa();
-            telaCaixa.tipoEntidade = "Caixa  ";
+            telaCaixa.tipoEntidade = "Caixa ";
             telaCaixa.repositorio = repositorioCaixa;
-            telaCaixa.CadastrarEntidadeTeste();
+
+            Caixa caixa = new Caixa("abc", "azul", 3);
+            repositorioCaixa.Cadastrar(caixa);
+
+            repositorioRevista.Cadastrar(new Revista("batman", "123", "2024", caixa));
 
             while (true)
             {
@@ -35,10 +47,11 @@ namespace ClubeDaLeitura.ConsoleApp
                 
                 else if (opcaoPrincipalEscolhida == '2')
                     tela = telaCaixa;
-                /*
+                
+                
                 else if (opcaoPrincipalEscolhida == '3')
                     tela = telaRevista;
-
+                /*
                 else if (opcaoPrincipalEscolhida == '4')
                     tela = telaEmprestimo;
 
