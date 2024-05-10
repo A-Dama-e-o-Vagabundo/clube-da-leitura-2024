@@ -1,5 +1,6 @@
 ﻿using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
+using ClubeDaLeitura.ConsoleApp.ModuloEmprestimo;
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloReserva;
@@ -22,7 +23,13 @@ namespace ClubeDaLeitura.ConsoleApp
             TelaRevista telaRevista = new TelaRevista();
             telaRevista.tipoEntidade = "Revista  ";
             telaRevista.repositorio = repositorioRevista;
-            
+
+            // módulo Emprestimo
+            RepositorioEmprestimo repositorioEmprestimo = new RepositorioEmprestimo();
+            TelaEmprestimo telaEmprestimo = new TelaEmprestimo();
+            telaEmprestimo.tipoEntidade = "Emprestimo  ";
+            telaEmprestimo.repositorio = repositorioEmprestimo;
+
             // Módulo Caixa
             RepositorioCaixa repositorioCaixa = new RepositorioCaixa();
             TelaCaixa telaCaixa = new TelaCaixa();
@@ -60,7 +67,7 @@ namespace ClubeDaLeitura.ConsoleApp
                 
                 else if (opcaoPrincipalEscolhida == '3')
                     tela = telaRevista;
-                /*
+                
                 else if (opcaoPrincipalEscolhida == '4')
                     tela = telaEmprestimo;
                 */
