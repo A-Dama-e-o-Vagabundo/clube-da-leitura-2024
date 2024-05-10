@@ -47,8 +47,6 @@ namespace ClubeDaLeitura.ConsoleApp
             telaReserva.tipoEntidade = "Caixa ";
             telaReserva.repositorio = repositorioReserva;
 
-
-
             while (true)
             {
                 char opcaoPrincipalEscolhida = TelaPrincipal.ApresentarMenuPrincipal();
@@ -70,7 +68,7 @@ namespace ClubeDaLeitura.ConsoleApp
                 
                 else if (opcaoPrincipalEscolhida == '4')
                     tela = telaEmprestimo;
-                */
+
                 else if (opcaoPrincipalEscolhida == '5')
                     tela = telaReserva;
                 

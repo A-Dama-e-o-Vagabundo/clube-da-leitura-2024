@@ -1,7 +1,5 @@
-﻿using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
-using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
-using ClubeDaLeitura.ConsoleApp.ModuloEmprestimo;
-using ControleMedicamentos.ConsoleApp.Compartilhado;
+﻿using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
+using ClubeDaLeitura.ConsoleApp.Compartilhado;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloRevista;
 internal class TelaEmprestimo : TelaBase
@@ -62,16 +60,4 @@ internal class TelaEmprestimo : TelaBase
 
         return novaCaixa;
     }
-    /*
-    public void CadastrarEntidadeTeste()
-    {
-        Caixa caixa = (Caixa)RepositorioCaixa.SelecionarTodos()[0];
-
-        DateTime dataValidade = new DateTime(2025, 06, 20);
-
-        Revista revista = new Revista("Turma da Mõnica", "12389", "1998", caixa);
-
-        repositorio.Cadastrar(revista);
-    }
-    */
 }
