@@ -32,8 +32,8 @@ internal class TelaRevista : TelaBase
 
             Console.WriteLine(
                 "{0, -10} | {1, -25} | {2, -25} | {3, -15} | {4, -20}",
-                revistas.Id, revistas.Titulo, revistas.NumeroEdicao, revistas.Ano, revistas.Caixa
-            );
+                revistas.Id, revistas.Titulo, revistas.NumeroEdicao, revistas.Ano, revistas.Caixa.Etiqueta
+            ) ;
         }
 
         Console.ReadLine();
