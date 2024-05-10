@@ -1,7 +1,8 @@
 ﻿using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
-using ControleMedicamentos.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.ModuloReserva;
 
 namespace ClubeDaLeitura.ConsoleApp
 {
@@ -33,6 +34,14 @@ namespace ClubeDaLeitura.ConsoleApp
 
             repositorioRevista.Cadastrar(new Revista("batman", "123", "2024", caixa));
 
+            // Módulo Reserva
+            RepositorioReserva repositorioReserva = new RepositorioReserva();
+            TelaReserva telaReserva = new TelaReserva();
+            telaReserva.tipoEntidade = "Caixa ";
+            telaReserva.repositorio = repositorioReserva;
+
+
+
             while (true)
             {
                 char opcaoPrincipalEscolhida = TelaPrincipal.ApresentarMenuPrincipal();
@@ -54,10 +63,10 @@ namespace ClubeDaLeitura.ConsoleApp
                 /*
                 else if (opcaoPrincipalEscolhida == '4')
                     tela = telaEmprestimo;
-
+                */
                 else if (opcaoPrincipalEscolhida == '5')
                     tela = telaReserva;
-                */
+                
 
                 char operacaoEscolhida = tela.ApresentarMenu();
 
